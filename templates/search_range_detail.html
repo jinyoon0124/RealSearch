@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Matrix Comparison</title>
+         <style>
+             div.B {
+    -webkit-user-select: none;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgb(48, 113, 169);
+    background-image: none;
+    background-origin: padding-box;
+    background-size: auto;
+    border-bottom-color: rgb(40, 94, 142);
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-image-outset: 0px;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-source: none;
+    border-image-width: 1;
+    border-left-color: rgb(40, 94, 142);
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-right-color: rgb(40, 94, 142);
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-top-color: rgb(40, 94, 142);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-top-style: solid;
+    border-top-width: 1px;
+    box-sizing: border-box;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Droid Sans', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    height: 22px;
+    line-height: 18px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    outline-color: rgb(255, 255, 255);
+    outline-style: none;
+    outline-width: 0px;
+    padding-bottom: 1px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 1px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 110.0625px;
+}
+div.bar {
+    background-color: rgb(0, 73, 100);
+    box-sizing: border-box;
+    color: rgb(51, 51, 51);
+    display: block;
+    font-family: 'Droid Sans', sans-serif;
+    font-size: 9px;
+    height: 5px;
+    line-height: 12.6000003814697px;
+    text-align: center;
+    width: cover;
+}
+div.second_division {
+    background-color: rgb(0, 73, 100);
+    border-bottom-color: rgb(204, 204, 204);
+    border-bottom-style: solid;
+    border-bottom-width: 5px;
+    box-sizing: border-box;
+    color: rgb(51, 51, 51);
+    display: block;
+    font-family: 'Droid Sans', sans-serif;
+    font-size: 24px;
+    height: 88.5px;
+    line-height: 12.6000003814697px;
+    padding-bottom: 6.75px;
+    padding-left: 6.75px;
+    padding-right: 6.75px;
+    padding-top: 6.75px;
+    text-align: left;
+    width: cover;
+}
+</style>
+</head>
+<body background="color:#e6e6e6">
+    <div class="second_division">
+        <h3 style="color: white">Matrix Comparison</h3>
+    </div>
+    <div class="bar"></div><br>
+    <div class="B">
+<a href="home" style="color: white">Home</a></div>
+    <div class="B">
+<a href="search_name" style="color: white">search by name</a></div>
+    <div class="B">
+<a href="search_range" style="color: white">search by range</a></div>
+    <p>Following are the top 5 {{ ind_name }} REITs in terms of {{ kpi }}</p>
+      <table border="3" width="100%">
+      <tbody><tr>
+            <th>REITs</th>
+            <th>P/E</th>
+            <th>Net Profit Margin</th>
+            <th>Return on Equity</th>
+            <th>Dividend Yield</th>
+            <th>Debt/Equity</th>
+        </tr>
+       {% for item in detail_list %}
+            <tr align="center">
+                <td>{{ item.0 }}</td>
+                <td>{{ item.1 }}x</td>
+                <td>{{ item.2 }}%</td>
+                <td>{{ item.3 }}x</td>
+                <td>{{ item.4 }}%</td>
+                <td>{{ item.5 }}%</td>
+            </tr>
+        {% endfor %}
+</tbody></table>
+<br>
+    <div class="bar"></div><br>
+
+</body>
+</html>

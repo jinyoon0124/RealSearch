@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+     <style>
+div.bar {
+    background-color: rgb(0, 73, 100);
+    box-sizing: border-box;
+    color: rgb(51, 51, 51);
+    display: block;
+    font-family: 'Droid Sans', sans-serif;
+    font-size: 9px;
+    height: 5px;
+    line-height: 12.6000003814697px;
+    max-width: 1400px;
+    text-align: center;
+    width: cover;
+}
+div.B {
+    -webkit-user-select: none;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgb(48, 113, 169);
+    background-image: none;
+    background-origin: padding-box;
+    background-size: auto;
+    border-bottom-color: rgb(40, 94, 142);
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-image-outset: 0px;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-source: none;
+    border-image-width: 1;
+    border-left-color: rgb(40, 94, 142);
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-right-color: rgb(40, 94, 142);
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-top-color: rgb(40, 94, 142);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-top-style: solid;
+    border-top-width: 1px;
+    box-sizing: border-box;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Droid Sans', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    height: 22px;
+    line-height: 18px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    outline-color: rgb(255, 255, 255);
+    outline-style: none;
+    outline-width: 0px;
+    padding-bottom: 1px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 1px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 110.0625px;
+}
+div.first_division {
+background-color: rgb(0, 73, 100);
+    border-bottom-color: rgb(204, 204, 204);
+    border-bottom-style: solid;
+    border-bottom-width: 5px;
+    box-sizing: border-box;
+    color: rgb(51, 51, 51);
+    display: block;
+    font-family: 'Droid Sans', sans-serif;
+    font-size: 24px;
+    height: 370.5px;
+    line-height: 12.6000003814697px;
+    padding-bottom: 6.75px;
+    padding-left: 8px;
+    padding-right: 6.75px;
+    padding-top: 6.75px;
+    text-align: left;
+    min-width: 1300px;
+    width: cover;
+}
+div.second_division {
+    background-color: rgb(0, 73, 100);
+    border-bottom-color: rgb(204, 204, 204);
+    border-bottom-style: solid;
+    border-bottom-width: 5px;
+    box-sizing: border-box;
+    color: rgb(51, 51, 51);
+    display: block;
+    font-family: 'Droid Sans', sans-serif;
+    font-size: 24px;
+    height: 88.5px;
+    line-height: 12.6000003814697px;
+    padding-bottom: 6.75px;
+    padding-left: 6.75px;
+    padding-right: 6.75px;
+    padding-top: 6.75px;
+    text-align: left;
+    min-width: 1300px;
+    width: cover;
+}
+div.box1{
+    float:left;
+    margin-left: 20px;
+}
+div.box2{
+    float:right;
+    width:700px;
+    position: absolute;
+    margin-left: 250px;
+}
+</style>
+</head>
+<body style="background-color:#e6e6e6">
+    <div class="second_division">
+         <h3 style="color: white">For the industry you selected, which matrix is most important?</h3></div>
+           <div class="bar"></div><br>
+           <div class="B">
+         <a href="home" style="color: white">Home</a></div>
+    <div class="B">
+<a href="search_name" style="color: white">search by name</a></div>
+    <div class="B">
+<a href="search_range" style="color: white">search by range</a></div><br><br>
+    <div style="background-color: #78C9C1" class="first_division">
+        <div class="box1">
+            <h3 style="color:white">Matrix List</h3>
+        <div class="bar"></div><br><br><br><br>
+            <form action="search_range_detail" method="get">
+            <select name="matrix" size="8">
+                {% for matrix in matrix_list %}
+                    <option value="{{ matrix.1}}_{{ ind_name }}">{{ matrix.0 }}</option>
+                {% endfor %}</div>
+            </select><br><br><br>
+            <input type="submit" name="submit" value="Search">
+            </form>
+                <br><br>
+        </div>
+        <div class="box2">
+           <h3 style="color:white">{{ ind_name }} Reit Market Average Data</h3>
+            <table border="3" style="font-size: small; background-color: white;" width="100%">
+                <tbody><tr>
+                    <td style="height: 30px">P/E</td>
+                    <td align="center">{{ industry_list.1 }}x</td>
+                </tr>
+                <tr>
+                    <td style="height: 30px">Net Profit Margin</td>
+                    <td align="center">{{ industry_list.2 }}%</td>
+                </tr>
+                <tr>
+                    <td style="height: 30px">Return on Equity</td>
+                    <td align="center">{{ industry_list.3 }}x</td>
+                </tr>
+                <tr>
+                    <td style="height: 30px">Dividend Yield</td>
+                    <td align="center">{{ industry_list.4 }}%</td>
+                </tr>
+                <tr>
+                    <td style="height: 30px">Total D/E</td>
+                    <td align="center">{{ industry_list.5 }}%</td>
+                </tr>
+
+
+
+        </div>
+    <div class="bar"></div>
+    </div><br><br>
+</body>
+</html>
